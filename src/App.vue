@@ -2,12 +2,23 @@
   <div id="app">
     <button
       class="h-3rem w-20rem transition-colors"
-      :class="status.cls"
-      @mouseover="hover"
-      @mousedown="press"
-      @click="click"
-      @mouseleave="leave"
-    >{{ status.label }}</button>
+      :class="status1.cls"
+      @mouseover="hover1"
+      @mousedown="press1"
+      @click="click1"
+      @mouseleave="leave1"
+    >{{ status1.label }}</button>
+
+    <button
+      class="h-3rem w-20rem transition-colors"
+      :class="[
+        statuses.initial.cls,
+        status2.clicked ? statuses.clicked.cls : '',
+        'hover:bg-yellow-300',
+        'active:bg-red-300',
+      ]"
+      @click="click2"
+    >{{ status2.label }}</button>
     <section class="mt-2rem">
       <h1 class="font-bold">LEGEND:</h1>
       <ul>
@@ -25,7 +36,7 @@ const statuses = {
   initial: { cls: 'bg-green-300', label: 'HOVER OR CLICK ME' },
   hovered: { cls: 'bg-yellow-300', label: 'HOVERED' },
   pressed: { cls: 'bg-red-300', label: 'PRESSED' },
-  clicked: { cls: 'bg-blue-300', label: 'CLICKED' },
+  clicked: { cls: 'bg-blue-300', label: 'CLICKED', clicked: true },
 };
 
 export default {
@@ -33,21 +44,26 @@ export default {
   data () {
     return {
       statuses,
-      status: { ...statuses.initial },
+      status1: { ...statuses.initial },
+      status2: { ...statuses.initial },
     };
   },
   methods: {
-    press () {
-      this.status = { ...statuses.pressed };
+    press1 () {
+      this.status1 = { ...statuses.pressed };
     },
-    click () {
-      this.status = { ...statuses.clicked };
+    click1 () {
+      this.status1 = { ...statuses.clicked };
     },
-    hover () {
-      this.status = { ...statuses.hovered };
+    hover1 () {
+      this.status1 = { ...statuses.hovered };
     },
-    leave () {
-      this.status = { ...statuses.initial };
+    leave1 () {
+      this.status1 = { ...statuses.initial };
+    },
+
+    click2 () {
+      this.status2 = { ...statuses.clicked };
     },
   },
 };
