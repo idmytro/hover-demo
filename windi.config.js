@@ -1,5 +1,4 @@
 /* eslint-disable global-require */
-/* eslint-disable import/no-extraneous-dependencies */
 export default {
   screens: {
     hh: { raw: '(hover: hover)' },
