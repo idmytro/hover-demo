@@ -1,24 +1,39 @@
 <template>
   <div id="app">
-    <button
-      class="h-3rem w-20rem transition-colors"
-      :class="status1.cls"
-      @mouseover="hover1"
-      @mousedown="press1"
-      @click="click1"
-      @mouseleave="leave1"
-    >{{ status1.label }}</button>
+    <div class="space-y-1px">
+      <button
+        class="h-3rem w-full transition-colors"
+        :class="status1.cls"
+        @mouseover="hover1"
+        @mousedown="press1"
+        @click="click1"
+        @mouseleave="leave1"
+      >js mouseover | {{ status1.label }}</button>
 
-    <button
-      class="h-3rem w-20rem transition-colors"
-      :class="[
-        statuses.initial.cls,
-        status2.clicked ? statuses.clicked.cls : '',
-        'hover:bg-yellow-300',
-        'active:bg-red-300',
-      ]"
-      @click="click2"
-    >{{ status2.label }}</button>
+      <button
+        class="h-3rem w-full transition-colors"
+        :class="[
+          statuses.initial.cls,
+          status2.clicked ? statuses.clicked.cls : '',
+          'hover:bg-yellow-300',
+          'active:bg-red-300',
+        ]"
+        @click="click2"
+        @mouseleave="leave2"
+      >css :hover | {{ status2.label }}</button>
+      <button
+        class="h-3rem w-full transition-colors"
+        :class="[
+          statuses.initial.cls,
+          status2.clicked ? statuses.clicked.cls : '',
+          'can-hover:hover:bg-yellow-300',
+          'active:bg-red-300',
+        ]"
+        @click="click3"
+        @mouseleave="leave3"
+      >@media (hover: hover) | {{ status3.label }}</button>
+    </div>
+
     <section class="mt-2rem">
       <h1 class="font-bold">LEGEND:</h1>
       <ul>
@@ -46,6 +61,7 @@ export default {
       statuses,
       status1: { ...statuses.initial },
       status2: { ...statuses.initial },
+      status3: { ...statuses.initial },
     };
   },
   methods: {
@@ -64,6 +80,16 @@ export default {
 
     click2 () {
       this.status2 = { ...statuses.clicked };
+    },
+    leave2 () {
+      this.status2 = { ...statuses.initial };
+    },
+
+    click3 () {
+      this.status3 = { ...statuses.clicked };
+    },
+    leave3 () {
+      this.status3 = { ...statuses.initial };
     },
   },
 };
