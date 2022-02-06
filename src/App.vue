@@ -2,13 +2,13 @@
   <div id="app">
     <h1 class="mt-2rem mb-1rem">1. Default behavior</h1>
     <div class="flex gap-10px justify-center">
-      <button class="w-2/5 h-3rem select-none rounded bg-green-300 active:bg-blue-300 hover:bg-yellow-300">Button</button>
-      <button class="w-2/5 h-3rem select-none rounded bg-green-300 active:bg-blue-300 hover:bg-yellow-300">Button</button>
+      <button class="w-2/5 h-3rem select-none rounded bg-green-300 !active:bg-blue-300 hover:bg-yellow-300">Button</button>
+      <button class="w-2/5 h-3rem select-none rounded bg-green-300 !active:bg-blue-300 hover:bg-yellow-300">Button</button>
     </div>
     <h1 class="mt-2rem mb-1rem">2. Disabled hover on mobile</h1>
     <div class="flex gap-10px justify-center">
-      <button class="w-2/5 h-3rem select-none rounded bg-green-300 active:bg-blue-300 can-hover:hover:bg-yellow-300">Button</button>
-      <button class="w-2/5 h-3rem select-none rounded bg-green-300 active:bg-blue-300 can-hover:hover:bg-yellow-300">Button</button>
+      <button class="w-2/5 h-3rem select-none rounded bg-green-300 !active:bg-blue-300 can-hover:hover:bg-yellow-300">Button</button>
+      <button class="w-2/5 h-3rem select-none rounded bg-green-300 !active:bg-blue-300 can-hover:hover:bg-yellow-300">Button</button>
     </div>
   </div>
 </template>
