@@ -1,48 +1,15 @@
 <template>
   <div id="app">
-    <div class="space-y-1px">
-      <button
-        class="h-3rem w-full transition-colors"
-        :class="status1.cls"
-        @mouseover="hover1"
-        @mousedown="press1"
-        @click="click1"
-        @mouseleave="leave1"
-      >js mouseover | {{ status1.label }}</button>
-
-      <button
-        class="h-3rem w-full transition-colors"
-        :class="[
-          statuses.initial.cls,
-          status2.clicked ? statuses.clicked.cls : '',
-          'hover:bg-yellow-300',
-          'active:bg-red-300',
-        ]"
-        @click="click2"
-        @mouseleave="leave2"
-      >css :hover | {{ status2.label }}</button>
-      <button
-        class="h-3rem w-full transition-colors"
-        :class="[
-          statuses.initial.cls,
-          status2.clicked ? statuses.clicked.cls : '',
-          'can-hover:hover:bg-yellow-300',
-          'active:bg-red-300',
-        ]"
-        @click="click3"
-        @mouseleave="leave3"
-      >@media (hover: hover) | {{ status3.label }}</button>
+    <h1 class="mt-2rem mb-1rem">1. Default behavior</h1>
+    <div class="flex gap-10px justify-center">
+      <button class="w-2/5 h-3rem select-none rounded bg-green-300 active:bg-blue-300 hover:bg-yellow-300">Button</button>
+      <button class="w-2/5 h-3rem select-none rounded bg-green-300 active:bg-blue-300 hover:bg-yellow-300">Button</button>
     </div>
-
-    <section class="mt-2rem">
-      <h1 class="font-bold">LEGEND:</h1>
-      <ul>
-        <li class="h-2rem p-20px inline-flex justify-center items-center" :class="statuses.initial.cls">initial</li>
-        <li class="h-2rem p-20px inline-flex justify-center items-center" :class="statuses.hovered.cls">hovered</li>
-        <li class="h-2rem p-20px inline-flex justify-center items-center" :class="statuses.pressed.cls">pressed</li>
-        <li class="h-2rem p-20px inline-flex justify-center items-center" :class="statuses.clicked.cls">clicked</li>
-      </ul>
-    </section>
+    <h1 class="mt-2rem mb-1rem">2. Disabled hover on mobile</h1>
+    <div class="flex gap-10px justify-center">
+      <button class="w-2/5 h-3rem select-none rounded bg-green-300 active:bg-blue-300 can-hover:hover:bg-yellow-300">Button</button>
+      <button class="w-2/5 h-3rem select-none rounded bg-green-300 active:bg-blue-300 can-hover:hover:bg-yellow-300">Button</button>
+    </div>
   </div>
 </template>
 
@@ -102,6 +69,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
